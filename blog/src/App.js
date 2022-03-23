@@ -11,7 +11,7 @@ function App() {
 
     function changeTitle() { 
         let newArray = [...title];
-        newArray[1] = '여자'
+        newArray[1] = '여자 코트 추천';
       }
     return (
         <div className="App">
