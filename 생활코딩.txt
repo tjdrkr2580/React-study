@@ -24,4 +24,20 @@ function Nav(props) {
     props.topics.length 만큼의 for문을 돌려주고 그 값을 lis에 집어넣는다. 
 
     -
+    event
+    onClick , etc {함수}를 통해서 event를 실행시킬 수 있다. React 이벤트에 숙달되면
+    화살표 함수를 많이 적게 될 것 같다.
+
+         <Header title="React" onChangeMode = {()=>{alert('header');}}></Header>
+         <Nav topics={topics} onChangeMode = {(id)=>{alert(id);}}></Nav>
+         
+        for(let i = 0 ; i < props.topics.length;i++){ 
+          let t = props.topics[i]; 
+          lis.push(<li key={t.id}><a id={t.id} href={'/read/'+t.id} onClick={(e)=>{e.preventDefault(); props.onChangeMode(e.target.id);}}>t.title</a></li>);
+        } < a 태그 클릭 시 해당 id를 값으로 하는 alert 출력
+
+        <a href="/" onClick = {(e)=>{e.preventDefault(); props.onChangeMode();}}>{props.title}</a>
+            해당 태그 클릭 시 header가 alert 메시지로 출력됨.
+
     
+
