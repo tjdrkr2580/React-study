@@ -9,22 +9,21 @@ function App() {
         fontSize: `35px`
     }
 
-    function changeTitle() { 
-        let newArray = [...title];
-        newArray[1] = '여자 코트 추천';
-      }
+    // function changeTitle() {     let newArray = [...title];     newArray[1] = '여자
+    // 코트 추천';     chtitle( newArray );   }
+
     return (
         <div className="App">
             <div className="black-nav">
                 <div style={changeCss}>개발 Blog</div>
             </div>
-            <button onClick={changeTitle}>버튼</button>
+            <button>버튼</button>
             <div className="list">
                 <h3>{title[0]}
                     <span
                         onClick={() => {
                             chnumber(number + 1)
-                        }}>❤</span>
+                        }}> ❤</span>
                     {number}</h3>
                 <p>2월 17일 발행</p>
                 <hr/>
@@ -39,8 +38,19 @@ function App() {
                 <p>2월 19일 발행</p>
                 <hr/>
             </div>
+            <Modal/>
         </div>
     );
+}
+
+function Modal() {
+    return (
+        <div className='modal'>
+            <h2>제목</h2>
+            <p>날짜</p>
+            <p>상세내용</p>
+        </div>
+    )
 }
 
 export default App;
