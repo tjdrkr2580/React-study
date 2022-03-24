@@ -23,7 +23,7 @@ function App() {
                     <span
                         onClick={() => {
                             chnumber(number + 1)
-                        }}> ❤</span>
+                        }}>❤</span>
                     {number}</h3>
                 <p>2월 17일 발행</p>
                 <hr/>
