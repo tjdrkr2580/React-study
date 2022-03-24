@@ -1,3 +1,27 @@
 사용자 정의 태그 - component
 사용자 정의 태그를 제작할 때에는 무조건 대문자를 사용해야 한다.
 더 적은 복잡도를 가지고 , 생산성을 획기적으로 끌어올릴 수 있음.
+
+-
+
+props를 사용해서 props.title을 사용해서 제목을 바꿀 수 있음.
+[props가 약간 JS에서의 함수의 파라미터로 event를 넣었던 것처럼 props를 넣는 것 같다.]
+function Nav(props) {
+    const lis = []
+        for(let i = 0 ; i < props.topics.length;i++){
+          let t = props.topics[i]; 
+          lis.push(<li key={t.id}><a href={'/read/'+t.id}>t.title</a></li>);
+        }
+    return (
+    <nav>
+        <ol>
+          { lis }
+        </ol>
+    </nav>)
+
+    ... <nav topics={ topics }
+    topics의 값을 topic를 넣어 topics 배열을 받아주고 그 배열이 Nav component로 인해
+    props.topics.length 만큼의 for문을 돌려주고 그 값을 lis에 집어넣는다. 
+
+    -
+    
