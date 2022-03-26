@@ -31,6 +31,7 @@ function Article() {
     </article>)
 }
 function App() {
+    const mode = 'WELCOME';
     const topics = [ // eslint-disable-line no-unused-vars
         {
           id: 1,
@@ -50,6 +51,13 @@ function App() {
           body: 'js is....'
         }
     ];
+    let content = null;
+    if(mode === 'WELCOME'){
+
+    }
+    else if(mode === 'READ'){
+
+    }
     return (
         <div className="App">
             <Header title="React" onChangeMode = {()=>{alert('header');}}></Header>
