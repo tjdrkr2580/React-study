@@ -16,7 +16,7 @@ function Nav(props) {
     const lis = []
         for(let i = 0 ; i < props.topics.length;i++){
           let t = props.topics[i]; 
-          lis.push(<li key={t.id}><a id={t.id} href={'/read/'+t.id} onClick={(e)=>{e.preventDefault(); props.onChangeMode(Number(e.target.id));}}>t.title</a></li>);
+          lis.push(<li key={t.id}><a id={t.id} href={'/read/'+t.id} onClick={(e)=>{e.preventDefault(); props.onChangeMode(Number(e.target.id));}}>{ t.title }</a></li>);
         }
     return (
     <nav>
@@ -31,10 +31,25 @@ function Article(props) {
         { props.body }
     </article>)
 }
+
+function Create(props){
+    return <article>
+        <h2>Create</h2>
+        <form onSubmit={e =>{e.preventDefault();
+        const title = e.target.title.value;
+        const body = e.target.body.value;
+        props.onCreate(title, body);}}>
+        <p><input type="text" name='title' placeholder='title'/></p>
+        <p><textarea name="body" placeholder='body'></textarea></p>
+        <p><input type="submit" value="Create"/></p>
+        </form>
+    </article>
+}
 function App() {
     const [id,setId] = useState(null);
-    const [mode, setMode] = useState(null);
-    const topics = [ // eslint-disable-line no-unused-vars
+    const [mode, setMode] = useState('WELCOME');
+    const [nextId,setNextId] = useState(4);
+    const [topics,setTopics] = useState([ // eslint-disable-line no-unused-vars
         {
           id: 1,
           title: 'html',
@@ -51,8 +66,7 @@ function App() {
           id: 3,
           title: 'js',
           body: 'js is....'
-        }
-    ];
+        }]);
     let content = null;
     if(mode === 'WELCOME'){
         content = <Article title="Welcome" body="Hello, WEB"></Article>
@@ -67,11 +81,23 @@ function App() {
         }
         content = <Article title={title} body={body}></Article>
     }
+    else if(mode === 'CREATE'){
+        content = <Create onCreate={(_title, _body)=>{
+            const newTopic = {id: nextId , title:_title, body:_body};
+            const newTopics = [...topics];
+            newTopics.push(newTopic);
+            setTopics(newTopics);
+            setMode('READ');
+            setId(nextId);
+            setNextId(nextId+1);
+        }}></Create>
+    }
     return (
         <div className="App">
             <Header title="React" onChangeMode = {()=>{setMode('WELCOME');}}></Header>
             <Nav topics={topics} onChangeMode = {(_id)=>{setMode('READ'); setId(_id);}}></Nav>
             {content}
+            <a href='/create' onClick={(e)=>{e.preventDefault(); setMode('CREATE'); console.log(topics);}}>Create</a>
         </div>
     )
 }
