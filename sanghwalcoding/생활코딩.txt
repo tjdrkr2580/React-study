@@ -39,5 +39,16 @@ function Nav(props) {
         <a href="/" onClick = {(e)=>{e.preventDefault(); props.onChangeMode();}}>{props.title}</a>
             해당 태그 클릭 시 header가 alert 메시지로 출력됨.
 
+state
+-
+import를 통해 usestate를 선언해야 한다.
+변경변수와 , 값 변수 두 개를 배열로 묶어서 선언해준다.
+ex ) const [mode,setmode] = useState('WELCOME'); < userState 안에 넣어놓은 것은 default 값이다.
+배열에 관해서는 애플코딩 리액트 강의에 적어놓음.
+
+
+
+
+
     
 
