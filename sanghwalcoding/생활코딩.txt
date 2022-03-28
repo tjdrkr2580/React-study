@@ -47,6 +47,23 @@ ex ) const [mode,setmode] = useState('WELCOME'); < userState 안에 넣어놓은
 배열에 관해서는 애플코딩 리액트 강의에 적어놓음.
 
 
+create
+-
+대부분에 애플리케이션에는 create read update delete 이 4가지 동작이 있음.
+
+update
+-
+1에서의 props 값을 2에서 1 props를 받아서 받아서 수정할 수 없음.
+왕의 어명인지 예를 들어주셨는데 이해가 잘 안되었음.
+
+~
+
+이후로는 새로운 개념에 대한 이야기는 없었음.
+
+
+
+
+
 
 
 
