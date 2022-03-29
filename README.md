@@ -1,4 +1,4 @@
-# React Study epository
+# React Study Repository
 **React 공부하고 velog에 기록하는 repository** 😁
 <hr>
 
