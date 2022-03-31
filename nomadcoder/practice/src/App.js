@@ -33,7 +33,7 @@ function App() {
                     type="number"
                     disabled={!flipped}/>
                 <button onClick={reset}>Reset</button>
-                <button onClick={onFilp}>flip</button>
+                <button onClick={onFilp}>{flipped ? "turn back" : "flip"}</button>
             </div>
         </div>
     );
