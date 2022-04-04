@@ -50,25 +50,28 @@ function MinutesToHours() {
 }
 
 function KmToMiles() {
-    const [amount,setAmount] = useState(0);
-    const [flip,setFlip] = useState(false);
+    const [amount, setAmount] = useState("");
+    const [flip, setFlip] = useState(false);
     const onFilp = () => {
-        console.log(flip);
+        reset();
         setFlip((current) => !current);
     }
     const reset = () => setAmount(0);
+    const onChange = (event) => {
+        setAmount(event.target.value);
+    }
 
     return (
         <div className="app">
             <h3>KM 2 Mile</h3>
             <p>
                 <label htmlFor='km'>Km :
-                </label><input id='km' type="number" disabled={flip}/></p>
+                </label><input id='km' value={flip ? amount*0.62137119 : amount} type="number" disabled={flip} onChange={onChange}/></p>
             <h4>You want to convert</h4>
             <p>
                 <label htmlFor='km'>Mile:
-                </label><input id='mile' type="number" disabled={!flip}/>
-                <button>reset</button>
+                </label><input id='mile' value={flip ? amount : amount*1.60934 } type="number" disabled={!flip} onChange={onChange}/>
+                <button onClick={reset}>reset</button>
                 <button onClick={onFilp}>flip</button>
             </p>
         </div>
