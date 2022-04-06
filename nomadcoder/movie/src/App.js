@@ -1,9 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Button from "./Button";
+import styles from "./App.module.css";
+;
 function App() {
   return (
-    <div className="App">
+    <div>
+      <h1 className={styles.title}>Welcome! React</h1>
+      <Button text={"Continue"}></Button>
     </div>
   );
 }
