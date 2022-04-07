@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import Button from "./Button";
-import styles from "./App.module.css";
-;
+
+function Hello(){
+  function byfc(){
+    console.log("bye!");
+  }
+  function hifc(){
+    console.log('Hello!');
+    return byfc;
+  }
+  useEffect(hifc,[]);
+  return <h1>Hello</h1>
+}
 function App() {
-  const [counter, setValue] = useState(0);
-  const [keyword, setKeyword] = useState("");
-  const onChange = (e) => {setKeyword(e.target.value);}
-  const onClick = () => setValue((prev) => prev + 1);
-  useEffect(() => {
-    if(keyword !== '' && keyword.length > 5)
-    console.log("search for " , keyword);
-  },[keyword]);
-  useEffect(() => {
-    if(counter !== '0' && counter > 5)
-    console.log("my counter is " , counter);
-  },[counter]);
+  const [showing, setshowing] = useState(false);
+  const onClick = () => setshowing((prev) => !prev);
   return (
     <div>
-        <input type="text" value={keyword} onChange={onChange} placeholder='Search here...'/>
-        <h1>{counter}</h1>
-        <button  onClick={onClick}>click me!</button>
+      {showing ? <Hello/> : null}
+      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
     </div>
   );
 }
