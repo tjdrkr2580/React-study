@@ -11,12 +11,11 @@ function App() {
         if (toDo === "") {
             return;
         }
-        setTodo("");
         setTodos(currentArray => [
-            toDo, ...currentArray
+            ...currentArray , toDo
         ]);
+        setTodo("");
     };
-    console.log(toDos);
     return (
         <div>
             <h1>My Todo Count {toDos.length}</h1>
@@ -28,6 +27,10 @@ function App() {
                     placeholder='Write your to do'/>
                 <button>Add to do</button>
             </form>
+            <hr/>
+            <ul>
+                {toDos.map((item, index) => <li key={index}>{item}</li>)}
+            </ul>
         </div>
     );
 }
