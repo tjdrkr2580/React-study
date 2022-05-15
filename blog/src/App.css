@@ -1,3 +1,14 @@
+
+div {
+  box-sizing: border-box;
+}
+
+.list {
+  padding-left: 20px;
+  text-align: left;
+  border-bottom: 1px solid grey;
+}
+
 .App {
   text-align: center;
 }
@@ -9,6 +20,7 @@
   color: white;
   padding-left: 20px;
 }
+
 
 .App-logo {
   height: 40vmin;
