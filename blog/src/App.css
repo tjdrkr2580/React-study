@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+.black-nav {
+  display: flex;
+  background-color: black;
+  width: 100%;
+  color: white;
+  padding-left: 20px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
