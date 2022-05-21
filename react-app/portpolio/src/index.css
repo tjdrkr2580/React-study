@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
 :root {
     --color-bg: #1f1f38;
     --color-bg-variant: #2c2c6c;
@@ -81,6 +87,8 @@ a:hover {
     padding: 0.75rem 1.2rem;
     border-radius: 0.4rem;
     border: 1px solid var(--color-primary);
+    cursor: pointer;
+    transition: var(--transtion);
 }
 
 .btn:hover {
