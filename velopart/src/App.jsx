@@ -36,30 +36,34 @@ function App() {
   ]);
 
   const nextId = useRef(4);
+
   const onCreate = () => {
-
-    const user = {
-      id: nextId.current,
-      username,
-      email
+    if(username !== '' && email !== ''){
+      const user = {
+        id: nextId.current,
+        username,
+        email
+      }
+  
+      setUsers(users.concat(user));
+      
+      setInputs({
+        username: '',
+        email: ''
+      });
+  
+      nextId.current += 1;
     }
+}
 
-    setUsers(users.concat(user));
-    
-    setInputs({
-      username: '',
-      email: ''
-    });
-
-    nextId.current += 1;
-
-    console.log(users,user);
+const onRemove = id => {
+  setUsers(users.filter(user => user.id !== id));
 }
 
   return (
     <>
     <CreateUsers username={username} email={email} onChange={onChange} onCreate={onCreate}/>
-    <UserList users={users} />
+    <UserList users={users} onRemove={onRemove} />
     </>
   );
 }
