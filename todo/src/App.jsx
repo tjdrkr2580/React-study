@@ -20,6 +20,11 @@ function App() {
     setItems(oldlist => [...oldlist,item]);
     setNewItem("");
   }
+
+  const onRemove = (id) => {
+    const newArray = items.filter(item => item.id !== id);
+    setItems(newArray);
+  }
     return (
         <div className='App'>
             <h1>Todo List App</h1>
@@ -30,7 +35,8 @@ function App() {
             <ul>
               {items.map(item => {
                 return (
-                  <li key={item.id}>{item.id} {item.value}</li>
+                  <li key={item.id}>{item.id} {item.value}
+                  <button onClick={()=>{onRemove(item.id)}}>Remove</button></li>
                 )
               })
               }
