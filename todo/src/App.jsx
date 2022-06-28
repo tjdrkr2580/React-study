@@ -3,11 +3,22 @@ import { useState } from 'react';
 
 function App() {
   const [newItem,setNewItem] = useState("");
+  const [items,setItems] = useState([]);
+
   const onChange = (e) => {
     setNewItem(e.target.value);
   }
-  const onSubmit = () => {
-    
+  const onCreate = () => {
+    if(newItem === ""){
+      alert("Enter your Item");
+      return;
+    }
+    const item = {
+      id: Math.floor(Math.random() * 1000),
+      value: newItem,
+    };
+    setItems(oldlist => [...oldlist,item]);
+    setNewItem("");
   }
     return (
         <div className='App'>
@@ -15,7 +26,15 @@ function App() {
             <input type="text" placeholder='Add an Item..' value={newItem}
               onChange={onChange}
             />
-            <button onClick={onSubmit}>Add</button>
+            <button onClick={onCreate}>Add</button>
+            <ul>
+              {items.map(item => {
+                return (
+                  <li key={item.id}>{item.id} {item.value}</li>
+                )
+              })
+              }
+            </ul>
         </div>
 
     );
